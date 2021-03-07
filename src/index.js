@@ -8,3 +8,6 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root')
 );
+
+//everything as be in <App/>
+//this stays as it is!sadfsadfddd
