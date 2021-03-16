@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from "axios";
 import Movie from "./Movie";
+import "./App.css";
 
 class App extends React.Component{
 
@@ -32,7 +33,8 @@ class App extends React.Component{
                     year={movie.year}
                     title={movie.title}
                     summary={movie.summary}
-                    poster={movie.medium_cover_image}/>
+                    poster={movie.medium_cover_image}
+                    genres = {movie.genres}/>
     ));
   }
 
@@ -41,9 +43,16 @@ class App extends React.Component{
     //uses {} destructuring assignment
     //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#examples
     //"object destructuring"
-    console.log(movies);
-    return <div>{isLoading ? "Loading" : this.renderMovies(movies)}</div>
-  } //parathanses immediate, without it, only onClick\
+    return(<section>{isLoading ? (
+        <div className = "loader">
+          <span className = "loader_text">Loading</span>
+        </div> ) : (
+        <div className = "movies">
+          {this.renderMovies(movies)}
+        </div>)
+      }</section>);
+  } 
+  //parathanses immediate, without it, only onClick\
 
 
 
